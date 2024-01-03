@@ -75,12 +75,12 @@ public struct SnapCarouselView<Item: Identifiable, ItemView: View>: View {
 
 public struct CarouselCardView<Content: View>: View {
     
-    let cardIndex : Int
-    let currentIndex : Int
+    public let cardIndex : Int
+    public let currentIndex : Int
     
-    let card:() -> Content
+    public let card:() -> Content
     
-    init( cardIndex: Int, currentIndex: Int, @ViewBuilder content: @escaping () -> Content) {
+    public init( cardIndex: Int, currentIndex: Int, @ViewBuilder content: @escaping () -> Content) {
         self.cardIndex = cardIndex
         self.currentIndex = currentIndex
         self.card = content
