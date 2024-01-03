@@ -8,8 +8,8 @@ It can loop through any Identifiable and display it in your custom View.
         let items : [ItemModel] = []
         @State var index : Int = 0
         var body: some View {
-            SnapCarouselView(nextIndex : $index, cards: totems) { item in
-                //
+            SnapCarouselView(nextIndex : $index, cards: totems) { index, item in
+                //index
                 ItemView(item)
             }
         }

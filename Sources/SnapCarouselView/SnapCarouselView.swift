@@ -7,7 +7,7 @@
 import SwiftUI
 
 public struct SnapCarouselView<Item: Identifiable, ItemView: View>: View {
-    public init(nextIndex: Binding<Int>, cards: [Item], @ViewBuilder viewForItem: @escaping (Item) -> ItemView) {
+    public init(nextIndex: Binding<Int>, cards: [Item], @ViewBuilder viewForItem: @escaping (Int, Item) -> ItemView) {
            self._nextIndex = nextIndex
            self.cards = cards
            self.viewForItem = viewForItem
@@ -19,14 +19,14 @@ public struct SnapCarouselView<Item: Identifiable, ItemView: View>: View {
     @State private var offset : CGFloat = 0
     @State private var isDragging = false
     public let cards: [Item]
-    public let viewForItem: (Item) -> ItemView
+    public let viewForItem: (Int, Item) -> ItemView
     
     public var body: some View {
         GeometryReader { geometry in
             ZStack {
                 ForEach(Array(cards.enumerated()).reversed(), id:\.element.id) { index, card in
                     CarouselCardView(cardIndex: index, currentIndex: currentIndex, content: {
-                        viewForItem(card)
+                        viewForItem(index, card)
                     }).frame(height: geometry.size.height)
                         .offset(x: CGFloat(index - currentIndex) * ((index < currentIndex) ? (geometry.size.width * 0.55) : (geometry.size.width * 0.2)))
                         .offset(CGSize(width: (index == currentIndex || index < currentIndex) ? self.offset * (0.2) : 0, height: 0))
