@@ -12,8 +12,8 @@ public struct SnapCarouselView<Item: Identifiable, ItemView: View>: View {
     @State private var currentIndex: Int = 0
     @State private var offset : CGFloat = 0
     @State private var isDragging = false
-    let cards: [Item]
-    let viewForItem: (Item) -> ItemView
+    public let cards: [Item]
+    public let viewForItem: (Item) -> ItemView
     
     public var body: some View {
         GeometryReader { geometry in
@@ -72,6 +72,7 @@ public struct SnapCarouselView<Item: Identifiable, ItemView: View>: View {
     }
 }
 
+
 struct CarouselCardView<Content: View>: View {
     
     let cardIndex : Int
@@ -94,3 +95,4 @@ struct CarouselCardView<Content: View>: View {
         }
     }
 }
+
