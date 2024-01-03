@@ -73,7 +73,7 @@ public struct SnapCarouselView<Item: Identifiable, ItemView: View>: View {
 }
 
 
-struct CarouselCardView<Content: View>: View {
+public struct CarouselCardView<Content: View>: View {
     
     let cardIndex : Int
     let currentIndex : Int
@@ -86,7 +86,7 @@ struct CarouselCardView<Content: View>: View {
         self.card = content
     }
     
-    var body: some View {
+    public var body: some View {
         GeometryReader{ geo in
                 card()
                 .frame(width: geo.size.width * 0.7, height: geo.size.height)

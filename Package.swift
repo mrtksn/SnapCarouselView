@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "SnapCarouselView",
     platforms: [
-        .macOS(.v11), // Minimum macOS version 10.15
+        .macOS(.v11), // Minimum macOS version 11.0
         .iOS(.v15)       // Minimum iOS version 15.0
     ],
     products: [
