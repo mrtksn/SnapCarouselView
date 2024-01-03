@@ -3,8 +3,7 @@
 It can loop through any Identifiable and display it in your custom View.
 
 
-
-
+```swift
     struct ContentView: View {
         let items : [ItemModel] = []
         @State var index : Int = 0
@@ -27,5 +26,4 @@ It can loop through any Identifiable and display it in your custom View.
             // Your code
         }
     }
-
-    
+```
