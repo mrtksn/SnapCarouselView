@@ -7,6 +7,12 @@
 import SwiftUI
 
 public struct SnapCarouselView<Item: Identifiable, ItemView: View>: View {
+    public init(nextIndex: Binding<Int>, cards: [Item], @ViewBuilder viewForItem: @escaping (Item) -> ItemView) {
+           self._nextIndex = nextIndex
+           self.cards = cards
+           self.viewForItem = viewForItem
+       }
+    
    
     @Binding public var nextIndex: Int
     @State private var currentIndex: Int = 0
@@ -74,6 +80,12 @@ public struct SnapCarouselView<Item: Identifiable, ItemView: View>: View {
 
 
 public struct CarouselCardView<Content: View>: View {
+    public init(cardIndex: Int, currentIndex: Int, card: @escaping () -> Content) {
+        self.cardIndex = cardIndex
+        self.currentIndex = currentIndex
+        self.card = card
+    }
+    
     
     public let cardIndex : Int
     public let currentIndex : Int
