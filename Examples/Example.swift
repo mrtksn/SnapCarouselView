@@ -12,7 +12,7 @@ import SnapCarouselView
 /*
  A quick demonstration of how to use the SnapCarouselView
  */
-struct ContentView : View {
+struct ContentViews : View {
     
     //You need some kind of Identifiable data that will be used to generate the cards
     @State var items : [ExampleItemModel] = [.init(color: Color.yellow, text: "item 1"), .init(color: Color.cyan, text: "item 2"), .init(color: Color.purple, text: "item 3"), .init(color: Color.black, text: "item 4")]
@@ -30,8 +30,7 @@ struct ContentView : View {
             ZStack{
                 RoundedRectangle(cornerRadius: 25)
                     .fill(item.color)
-                    .padding()
-                    .overlay(Circle().fill(Color.white))
+                    .overlay(Circle().fill(Color.white).padding())
                 Text(item.text)
             }
         }

@@ -1,11 +1,15 @@
 ### A Carousel View for SwiftUI
+
+<img src="./Examples/SnapCarouselView.gif" alt="package demonstration" width="600"/>
                                 
-It can loop through any Identifiable and display it in your custom View.
+                                
+SnapCarouselView can loop through any Identifiable and display it in your custom View.
 
 
 ```swift
     import SwiftUI
     import SnapCarouselView
+    
     struct ContentView: View {
         let items : [ItemModel] = []
         @State var index : Int = 0
